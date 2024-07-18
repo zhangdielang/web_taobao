@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .悬浮 {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        position: relative;
+        bottom: 0px;
+        left: 100px;
+        width: 240px;
+        height: 410px;
+        background-color: rgb(250, 190, 0);
+        box-shadow: rgba(0, 0, 0, 0.1) 3px 0px 0px;
+        float: left;
+        overflow: hidden;
+    }
+
+    .悬浮>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        /* 绝对定位 */
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        /* 从顶部向底部垂直布置子元素 */
+        flex-direction: column;
+        /* 属性规定灵活项目将垂直显示，正如一个列一样 */
+        align-content: flex-start;
+        font-size: 16px;
+        /* 设置字体大小 */
+        white-space: pre-wrap;
+        /* 规定段落中的文本保留空白符序列，但是正常地进行换行*/
+        margin-left: 12px;
+        line-height: 30px;
+        color: rgb(255, 255, 255);
+        width: 228px;
+    }
+
+    .悬浮>div:nth-child(2) {
+        border-width: 0px 0px 1px;
+        border-style: solid;
+        border-color: black black rgb(240, 180, 4);
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        width: 228px;
+        margin-bottom: 3px;
+        padding-bottom: 7px;
+        margin-left: 12px;
+        margin-top: 7px;
+        float: left;
+
+    }
+
+    .悬浮>div:nth-child(2)>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 13px;
+        white-space: pre-wrap;
+        width: 228px;
+        overflow: hidden;
+        color: rgb(124, 82, 0);
+        line-height: 15px;
+        margin-bottom: 1px;
+        padding-bottom: 3px;
+        padding-top: 2px;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(2)>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 22px;
+        color: rgb(255, 255, 255);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(3) {
+        border-width: 0px 0px 1px;
+        border-style: solid;
+        border-color: black black rgb(240, 180, 4);
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        width: 228px;
+        margin-bottom: 3px;
+        padding-bottom: 7px;
+        margin-left: 12px;
+        margin-top: 7px;
+        float: left;
+    }
+
+    .悬浮>div:nth-child(3)>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 13px;
+        white-space: pre-wrap;
+        width: 228px;
+        overflow: hidden;
+        color: rgb(124, 82, 0);
+        line-height: 15px;
+        margin-bottom: 1px;
+        padding-bottom: 3px;
+        padding-top: 2px;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(3)>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 22px;
+        color: rgb(255, 255, 255);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(4) {
+        border-width: 0px 0px 1px;
+        border-style: solid;
+        border-color: black black rgb(240, 180, 4);
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        width: 228px;
+        margin-bottom: 3px;
+        padding-bottom: 7px;
+        margin-left: 12px;
+        margin-top: 7px;
+        float: left;
+    }
+
+    .悬浮>div:nth-child(4)>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 13px;
+        white-space: pre-wrap;
+        width: 228px;
+        overflow: hidden;
+        color: rgb(124, 82, 0);
+        line-height: 15px;
+        margin-bottom: 1px;
+        padding-bottom: 3px;
+        padding-top: 2px;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(4)>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 22px;
+        color: rgb(255, 255, 255);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(5) {
+        border-width: 0px 0px 1px;
+        border-style: solid;
+        border-color: black black rgb(240, 180, 4);
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        width: 228px;
+        margin-bottom: 3px;
+        padding-bottom: 7px;
+        margin-left: 12px;
+        margin-top: 7px;
+        float: left;
+    }
+
+    .悬浮>div:nth-child(5)>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 13px;
+        white-space: pre-wrap;
+        width: 228px;
+        overflow: hidden;
+        color: rgb(124, 82, 0);
+        line-height: 15px;
+        margin-bottom: 1px;
+        padding-bottom: 3px;
+        padding-top: 2px;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(5)>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 22px;
+        color: rgb(255, 255, 255);
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(6) {
+        border-width: 0px 0px 1px;
+        border-style: solid;
+        border-color: black black rgb(240, 180, 4);
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        width: 228px;
+        margin-bottom: 3px;
+        padding-bottom: 7px;
+        margin-left: 12px;
+        margin-top: 7px;
+        float: left;
+    }
+
+    .悬浮>div:nth-child(6)>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 13px;
+        white-space: pre-wrap;
+        width: 228px;
+        overflow: hidden;
+        color: rgb(124, 82, 0);
+        line-height: 15px;
+        margin-bottom: 1px;
+        padding-bottom: 3px;
+        padding-top: 2px;
+        margin-left: 10px;
+    }
+
+    .悬浮>div:nth-child(6)>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        -webkit-box-orient: vertical;
+        flex-direction: column;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 22px;
+        color: rgb(255, 255, 255);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .c {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        height: 30px;
+        display: flex;
+    }
+
+    .c>div:nth-child(1) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        height: 30px;
+        margin-left: 340px;
+    }
+
+    .c>div:nth-child(1)>a {
+        display: block;
+        position: relative;
+        margin-right: 38px;
+        height: 30px;
+        text-decoration: none;
+    }
+
+    .c>div:nth-child(2) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        width: 1px;
+        height: 14px;
+        margin-top: 8px;
+        background-color: rgb(212, 212, 212);
+    }
+
+    .c>div:nth-child(2)>div>a {
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        font-size: 14px;
+        white-space: pre-wrap;
+        color: rgb(0, 0, 0);
+        line-height: 30px;
+    }
+
+    .q>a {
+        margin-left: 50px;
+    }
+
+    .选择图片 {
+        height: 400px;
+        display: block;
+        border-style: solid #333;
+        background-color: blueviolet;
+    }
+
+    .选择图片>div {
+        height: 400px;
+        display: block;
+        border-style: solid #333;
+        margin-left: 340px;
+    }
+
+    .rp {
+        height: 400px;
+    }
+
+    .lq {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        margin-left: 100px;
+        margin-top: 21px;
+    }
+
+    .lq>div>div:nth-child(1) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 218px;
+        height: 460px;
+        padding-top: 21px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        background-color: rgb(242, 242, 248);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .lq>div>div>div>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: nowrap;
+        width: 205px;
+        overflow: hidden;
+        font-weight: 700;
+        color: rgb(51, 51, 51);
+        padding-left: 3px;
+        line-height: 18px;
+        margin-bottom: 4px;
+        float: left;
+    }
+
+    .lq>div>div>div>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 22px;
+        color: rgb(153, 153, 153);
+        margin-left: 1px;
+    }
+
+    .wq {
+        width: 300px;
+        height: 460px;
+    }
+
+    .lq>div>div:nth-child(2) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        width: 310px;
+        height: 460px;
+        float: left;
+    }
+
+    .lq>div>div:nth-child(3) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 800px;
+        height: 470px;
+        overflow: hidden;
+        float: left;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .lq>div>div:nth-child(3)>div {
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: black rgb(242, 242, 242) black black;
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 200px;
+        padding-right: 20px;
+        margin-left: 20px;
+        height: 235px;
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    .lq>div>div:nth-child(3)>div>div>div>img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .wj {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        margin-left: 100px;
+        margin-top: 21px;
+    }
+
+    .wj>div>div:nth-child(1) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 218px;
+        height: 460px;
+        padding-top: 21px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        background-color: rgb(242, 242, 248);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .wj>div>div>div>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: nowrap;
+        width: 205px;
+        overflow: hidden;
+        font-weight: 700;
+        color: rgb(51, 51, 51);
+        padding-left: 3px;
+        line-height: 18px;
+        margin-bottom: 4px;
+        float: left;
+    }
+
+    .wj>div>div>div>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 19px;
+        color: rgb(153, 153, 153);
+        margin-left: 1px;
+    }
+
+    .wj>div>div:nth-child(2) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        width: 310px;
+        height: 460px;
+        float: left;
+    }
+
+    .wj>div>div:nth-child(3) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 800px;
+        height: 470px;
+        overflow: hidden;
+        float: left;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .wj>div>div:nth-child(3)>div {
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: black rgb(242, 242, 242) black black;
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 200px;
+        padding-right: 20px;
+        margin-left: 20px;
+        height: 235px;
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    .wj>div>div:nth-child(3)>div>div>div>img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .fkt {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        margin-left: 100px;
+        margin-top: 21px;
+    }
+
+    .fkt>div>div:nth-child(1) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 218px;
+        height: 460px;
+        padding-top: 21px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        background-color: rgb(242, 242, 248);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .fkt>div>div>div>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: nowrap;
+        width: 205px;
+        overflow: hidden;
+        font-weight: 700;
+        color: rgb(51, 51, 51);
+        padding-left: 3px;
+        line-height: 18px;
+        margin-bottom: 4px;
+        float: left;
+    }
+
+    .fkt>div>div>div>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 19px;
+        color: rgb(153, 153, 153);
+        margin-left: 1px;
+    }
+
+    .fkt>div>div:nth-child(2) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        width: 310px;
+        height: 460px;
+        float: left;
+    }
+
+    .fkt>div>div:nth-child(3) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 800px;
+        height: 470px;
+        overflow: hidden;
+        float: left;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .fkt>div>div:nth-child(3)>div {
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: black rgb(242, 242, 242) black black;
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 200px;
+        padding-right: 20px;
+        margin-left: 20px;
+        height: 235px;
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    .fkt>div>div:nth-child(3)>div>div>div>img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .aa {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        margin-left: 100px;
+        margin-top: 21px;
+    }
+
+    .aa>div>div:nth-child(1) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 218px;
+        height: 460px;
+        padding-top: 21px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        background-color: rgb(242, 242, 248);
+        float: left;
+        margin-left: 10px;
+    }
+
+    .aa>div>div>div>div:nth-child(1) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: nowrap;
+        width: 205px;
+        overflow: hidden;
+        font-weight: 700;
+        color: rgb(51, 51, 51);
+        padding-left: 3px;
+        line-height: 15px;
+        margin-bottom: 4px;
+        float: left;
+    }
+
+    .aa>div>div>div>div:not(:nth-child(1)) {
+        border-width: 0px;
+        border-style: solid;
+        border-color: black;
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        align-content: flex-start;
+        flex-shrink: 0;
+        font-size: 12px;
+        white-space: pre-wrap;
+        line-height: 15px;
+        color: rgb(153, 153, 153);
+        margin-left: 1px;
+    }
+
+    .aa>div>div:nth-child(2) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: flex;
+        flex-shrink: 0;
+        position: relative;
+        width: 310px;
+        height: 460px;
+        float: left;
+    }
+
+    .aa>div>div:nth-child(3) {
+        border: 0px solid black;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 800px;
+        height: 470px;
+        overflow: hidden;
+        float: left;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .aa>div>div:nth-child(3)>div {
+        border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: black rgb(242, 242, 242) black black;
+        border-image: initial;
+        box-sizing: border-box;
+        display: block;
+        flex-shrink: 0;
+        width: 200px;
+        padding-right: 20px;
+        margin-left: 20px;
+        height: 235px;
+        padding-bottom: 10px;
+        float: left;
+    }
+
+    .aa>div>div:nth-child(3)>div>div>div>img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .qq {
+            width: 157px;
+            height: 300px;
+            position: fixed;
+            top: 200px;
+            right: 0px;
+            background-color: rgb(128, 53, 251);
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mmm {
+            border: none;
+            text-align: center;
+
+        }
+
+        .ccc {
+            width: 157px;
+            height: 151px;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            top: -2px;
+            left: 0px;
+        }
+        .qq a{
+            text-decoration: none;
+        }
+</style>
+
+<body>
+    <div></div>
+    <div class="c">
+        <div><a>首页</a></div>
+        <div></div>
+        <div class="q"><a>装修公司</a><a>装修材料</a><a>软装家居</a><a>生活百货</a></div>
+    </div>
+    <div class="t">
+        <div class="悬浮">
+            <div>精选商品</div>
+            <div>
+                <div>全屋定制</div>
+                <div><a>衣柜</a></div>
+                <div><a>橱柜</a></div>
+                <div><a>门</a></div>
+                <div><a>集成吊顶</a></div>
+                <div><a>楼梯</a></div>
+                <div><a>淋浴房</a></div>
+                <div><a>榻榻米</a></div>
+                <div><a>地暖</a></div>
+                <div><a>窗</a></div>
+                <div><a>装修设计</a></div>
+            </div>
+            <div>
+                <div>家装建材</div>
+                <div><a>建材优品</a></div>
+                <div><a>吊灯</a></div>
+                <div><a>吸顶灯</a></div>
+                <div><a>浴室柜</a></div>
+                <div><a>瓷砖</a></div>
+                <div><a>地板</a></div>
+                <div><a>墙纸</a></div>
+                <div><a>插座</a></div>
+                <div><a>门锁</a></div>
+                <div><a>马桶</a></div>
+            </div>
+            <div>
+                <div>住宅家具</div>
+                <div><a>实木床</a></div>
+                <div><a>布艺床</a></div>
+                <div><a>皮艺床</a></div>
+                <div><a>皮艺沙发</a></div>
+                <div><a>布艺沙发</a></div>
+                <div><a>沙发床</a></div>
+                <div><a>懒人沙发</a></div>
+                <div><a>餐桌</a></div>
+            </div>
+            <div>
+                <div>家纺家饰</div>
+                <div><a>四件套</a></div>
+                <div><a>冬被</a></div>
+                <div><a>枕头</a></div>
+                <div><a>床褥</a></div>
+                <div><a>毛毯</a></div>
+                <div><a>窗帘</a></div>
+                <div><a>地毯</a></div>
+                <div><a>沙发垫</a></div>
+                <div><a>摆件</a></div>
+                <div><a>花瓶</a></div>
+            </div>
+            <div>
+                <div>生活百货</div>
+                <div><a>拖鞋</a></div>
+                <div><a>创意餐盘</a></div>
+                <div><a>保温杯</a></div>
+                <div><a>心机小物</a></div>
+                <div><a>伞</a></div>
+                <div><a>毛巾</a></div>
+                <div><a>置物架</a></div>
+                <div><a>收纳箱</a></div>
+                <div><a>旅行收纳</a></div>
+            </div>
+        </div>
+        <div class="选择图片">
+            <div><a href=""><img src="TB1g5E.DhTpK1RjSZFGXXcHqFXa-750-400.jpg_Q75.jpg"><img src="QQ截图20230421152910.png"
+                        class="rp"></a></div>
+        </div>
+    </div>
+    <div class="图片"><img src="TB1l_zWc8Bh1e4jSZFhXXcC9VXa-1190-45.png" style="margin: left 40%;;"></div>
+    <div class="lq">
+        <div>
+            <div>
+                <div>
+                    <div>定制柜</div>
+                    <div><a>整体衣帽间</a></div>
+                    <div><a>走入式衣柜</a></div>
+                    <div><a>书柜书台</a></div>
+                    <div><a>飘窗柜</a></div>
+                    <div><a>酒柜</a></div>
+                    <div><a>玄关柜</a></div>
+                    <div><a>鞋柜</a></div>
+                    <div><a>电视柜</a></div>
+                    <div><a>浴室洗手柜</a></div>
+                    <div><a>餐边柜</a></div>
+                </div>
+                <div>
+                    <div>门</div>
+                    <div><a>室内门</a></div>
+                    <div><a>移门</a></div>
+                    <div><a>庭院门</a></div>
+                </div>
+                <div>
+                    <div>窗</div>
+                    <div><a>纱窗</a></div>
+                    <div><a>平开窗</a></div>
+                    <div><a>皮艺床</a></div>
+                    <div><a>外悬窗</a></div>
+                    <div><a>推拉窗</a></div>
+                    <div><a>防盗窗</a></div>
+                </div>
+                <div>
+                    <div>榻榻米</div>
+                    <div><a>和室几桌</a></div>
+                    <div><a>榻榻米垫</a></div>
+                    <div><a>升降机</a></div>
+                    <div><a>和室椅</a></div>
+                    <div><a>和室门</a></div>
+                    <div><a>榻榻米辅料</a></div>
+                </div>
+                <div>
+                    <div>其他定制</div>
+                    <div><a>定制淋浴房</a></div>
+                    <div><a>地暖暖气片</a></div>
+                    <div><a>楼梯</a></div>
+                    <div><a>定制护墙板背景墙</a></div>
+                    <div><a>集成吊顶</a></div>
+                </div>
+            </div>
+            <div><img src="TB19nmhNlr0gK0jSZFnXXbRRXXa-540-800.png" class="wq"></div>
+            <div>
+                <div>
+                    <div>
+                        <div><img src="1.jpg" class="lsj"></div>
+                        <div><a>¥1180</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="2.jpg" class="lsj"></div>
+                        <div><a>¥78</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="3.jpg" class="lsj"></div>
+                        <div><a>¥32.5</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="4.jpg" class="lsj"></div>
+                        <div><a>¥1100</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="5.jpg" class="lsj"></div>
+                        <div><a>¥65</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="6.jpg" class="lsj"></div>
+                        <div><a>¥110</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wj">
+        <div>
+            <div>
+                <div><img src="9.png"></div>
+                <div>
+                    <div>灯具灯饰</div>
+                    <div><a>射灯</a></div>
+                    <div><a>落地灯</a></div>
+                    <div><a>吊灯</a></div>
+                    <div><a>吸顶灯</a></div>
+                    <div><a>筒灯</a></div>
+                    <div><a>户外灯</a></div>
+                </div>
+                <div>
+                    <div>卫浴用品</div>
+                    <div><a>浴室柜</a></div>
+                    <div><a>花洒</a></div>
+                    <div><a>普通马桶</a></div>
+                    <div><a>智能马桶</a></div>
+                    <div><a>卫浴龙头</a></div>
+                    <div><a>五金挂件</a></div>
+                    <div><a>浴霸</a></div>
+                    <div><a>地漏角阀</a></div>
+                    <div><a>厨房水槽</a></div>
+                    <div><a>厨房其他</a></div>
+                </div>
+                <div>
+                    <div>窗</div>
+                    <div><a>纱窗</a></div>
+                    <div><a>平开窗</a></div>
+                    <div><a>皮艺床</a></div>
+                    <div><a>外悬窗</a></div>
+                    <div><a>推拉窗</a></div>
+                    <div><a>防盗窗</a></div>
+                </div>
+                <div>
+                    <div>墙地面</div>
+                    <div><a>仿古砖</a></div>
+                    <div><a>釉面砖</a></div>
+                    <div><a>微晶石</a></div>
+                    <div><a>马赛克</a></div>
+                    <div><a>玻化砖</a></div>
+                    <div><a>实木地板</a></div>
+                    <div><a>强化地板</a></div>
+                    <div><a>实木复合地</a></div>
+                    <div><a>壁画</a></div>
+                    <div><a>PVC</a></div>
+                    <div><a>无纺布</a></div>
+                    <div><a>3D</a></div>
+                </div>
+                <div>
+                    <div>五金工具</div>
+                    <div><a>开关</a></div>
+                    <div><a>插座</a></div>
+                    <div><a>监视器</a></div>
+                    <div><a>插线板</a></div>
+                    <div><a>门锁</a></div>
+                    <div><a>乳胶漆</a></div>
+                    <div><a>涂料</a></div>
+                </div>
+            </div>
+            <div><img src="10.png" class="wq"></div>
+            <div>
+                <div>
+                    <div>
+                        <div><img src="11.jpg" class="lsj"></div>
+                        <div><a>¥684</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="12.jpg" class="lsj"></div>
+                        <div><a>¥432</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="13.jpg" class="lsj"></div>
+                        <div><a>¥878.01</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="14.jpg" class="lsj"></div>
+                        <div><a>¥29</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="15.jpg" class="lsj"></div>
+                        <div><a>¥4680</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="16.jpg" class="lsj"></div>
+                        <div><a>¥289</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fkt">
+        <div>
+            <div>
+                <div><img src="17.png"></div>
+                <div>
+                    <div>布艺</div>
+                    <div><a>定制窗帘</a></div>
+                    <div><a>成品窗帘</a></div>
+                    <div><a>珠帘线帘</a></div>
+                    <div><a>卷帘百叶</a></div>
+                    <div><a>地毯</a></div>
+                    <div><a>地垫</a></div>
+                    <div><a>沙发垫</a></div>
+                    <div><a>飘窗垫</a></div>
+                    <div><a>椅垫</a></div>
+                    <div><a>靠垫</a></div>
+                    <div><a>桌布</a></div>
+                    <div><a>桌旗</a></div>
+                    <div><a>餐垫</a></div>
+                    <div><a>防尘罩</a></div>
+                    <div><a>沙发罩</a></div>
+                    <div><a>缝纫机</a></div>
+                </div>
+                <div>
+                    <div>摆件</div>
+                    <div><a>摆件</a></div>
+                    <div><a>花瓶</a></div>
+                    <div><a>仿真花</a></div>
+                    <div><a>台钟闹钟</a></div>
+                    <div><a>香薰炉</a></div>
+                    <div><a>储物罐</a></div>
+                    <div><a>装饰碗盘</a></div>
+                    <div><a>木雕</a></div>
+                </div>
+                <div>
+                    <div>壁饰</div>
+                    <div><a>现代装饰</a></div>
+                    <div><a>无框画</a></div>
+                    <div><a>后现代画</a></div>
+                    <div><a>油画</a></div>
+                    <div><a>挂钟</a></div>
+                    <div><a>照片墙</a></div>
+                    <div><a>新中式</a></div>
+                    <div><a>北欧家饰</a></div>
+                </div>
+                <div>
+                    <div>床品</div>
+                    <div><a>四件套</a></div>
+                    <div><a>磨毛四件套</a></div>
+                    <div><a>绒类四件套</a></div>
+                    <div><a>冬被</a></div>
+                    <div><a>羽绒被</a></div>
+                    <div><a>蚕丝被</a></div>
+                    <div><a>棉被</a></div>
+                    <div><a>毛巾被</a></div>
+                    <div><a>枕头</a></div>
+                    <div><a>乳胶枕</a></div>
+                    <div><a>记忆枕</a></div>
+                    <div><a>U型枕</a></div>
+                    <div><a>被套</a></div>
+                    <div><a>床笠</a></div>
+                    <div><a>床单</a></div>
+                    <div><a>枕套</a></div>
+                    <div><a>床褥</a></div>
+                    <div><a>毛毯</a></div>
+                </div>
+            </div>
+            <div><img src="18.png" class="wq"></div>
+            <div>
+                <div>
+                    <div>
+                        <div><img src="19.jpg" class="lsj"></div>
+                        <div><a>¥684</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="20.jpg" class="lsj"></div>
+                        <div><a>¥432</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="21.jpg" class="lsj"></div>
+                        <div><a>¥878.01</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="22.jpg" class="lsj"></div>
+                        <div><a>¥29</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="23.jpg" class="lsj"></div>
+                        <div><a>¥4680</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="24.jpg" class="lsj"></div>
+                        <div><a>¥289</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="aa">
+        <div>
+            <div>
+                <div><img src="25(1).png"></div>
+                <div>
+                    <div>日用</div>
+                    <div><a>遮阳伞</a></div>
+                    <div><a>拖鞋</a></div>
+                    <div><a>迷你风扇</a></div>
+                    <div><a>毛巾</a></div>
+                    <div><a>摇扇</a></div>
+                    <div><a>眼罩</a></div>
+                    <div><a>金蛋</a></div>
+                    <div><a>礼物</a></div>
+                    <div><a>气球</a></div>
+                    <div><a>喜糖盒</a></div>
+                    <div><a>相册</a></div>
+                    <div><a>心机小物</a></div>
+                </div>
+                <div>
+                    <div>收纳</div>
+                    <div><a>摆件</a></div>
+                    <div><a>花瓶</a></div>
+                    <div><a>仿真花</a></div>
+                    <div><a>台钟闹钟</a></div>
+                    <div><a>香薰炉</a></div>
+                    <div><a>储物罐</a></div>
+                    <div><a>装饰碗盘</a></div>
+                    <div><a>木雕</a></div>
+                </div>
+                <div>
+                    <div>壁饰</div>
+                    <div><a>被子防尘袋</a></div>
+                    <div><a>收纳盒</a></div>
+                    <div><a>收纳袋</a></div>
+                    <div><a>大衣/西服罩</a></div>
+                    <div><a>护洗袋</a></div>
+                    <div><a>收纳凳</a></div>
+                    <div><a>鞋柜</a></div>
+                    <div><a>置物架</a></div>
+                    <div><a>桌用收纳</a></div>
+                    <div><a>内衣收纳</a></div>
+                </div>
+                <div>
+                    <div>清洁</div>
+                    <div><a>剃须刮毛刀</a></div>
+                    <div><a>沐浴球/浴擦/浴刷</a></div>
+                    <div><a>浴室角架/置物架</a></div>
+                    <div><a>浴帘杆</a></div>
+                    <div><a>拖把</a></div>
+                    <div><a>垃圾桶</a></div>
+                    <div><a>梳子镜子</a></div>
+                    <div><a>围裙</a></div>
+                    <div><a>百洁布</a></div>
+                    <div><a>海绵擦</a></div>
+                </div>
+                <div>
+                    <div>厨房</div>
+                    <div><a>酒杯酒具</a></div>
+                    <div><a>咖啡器具</a></div>
+                    <div><a>碗盘碟</a></div>
+                    <div><a>刀叉勺</a></div>
+                    <div><a>餐具瓷器套装</a></div>
+                    <div><a>餐桌小物</a></div>
+                    <div><a>饭盒</a></div>
+                </div>
+            </div>
+            <div><img src="26.png" class="wq"></div>
+            <div>
+                <div>
+                    <div>
+                        <div><img src="27.jpg" class="lsj"></div>
+                        <div><a>¥9.9</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="28.jpg" class="lsj"></div>
+                        <div><a>¥22.8</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="29.jpg" class="lsj"></div>
+                        <div><a>¥14</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="30.jpg" class="lsj"></div>
+                        <div><a>¥8</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="31.jpg" class="lsj"></div>
+                        <div><a>¥113</a></div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div><img src="32.jpg" class="lsj"></div>
+                        <div><a>¥25</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div><img src="33.png" style="margin-left: 110px; margin-top: 21px;"></div>
+    <div><img src="34.png" style="margin-left: 110px; width: 1200px; ;"></div>
+    <div class="qq">
+        <div><img class="ccc" src="ma.png"></div>
+        <div>
+            <table class="mmm">
+
+                <tr>
+                    <td><a href="#top" style="color: white;">大牌服饰</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#top" style="color: white;">食品生鲜</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#top" style="color: white;">美家数码</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#top" style="color: white;">回到顶部</a></td>
+                </tr>
+                <tr>
+                    <td><a href="../taobao.html" style="color: white;">回到主页</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
